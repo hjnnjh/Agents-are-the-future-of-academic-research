@@ -6,8 +6,8 @@ hero:
   text: "for Academic Research"
   tagline: Coding Agent在学术研究中的应用经验分享
   image:
-    dark: /Agents-are-the-future-of-academic-research/img/Claude_AI_symbol.svg.png
-    light: /Agents-are-the-future-of-academic-research/img/opencode-logo-light.png
+    dark: /img/Claude_AI_symbol.svg.png
+    light: /img/opencode-logo-light.png
     alt: Coding Agent
   actions:
     - theme: brand

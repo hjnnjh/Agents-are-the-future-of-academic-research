@@ -150,7 +150,7 @@ export default withMermaid(defineConfig({
   // Head 配置
   head: [
     // Favicon
-    ['link', { rel: 'icon', href: '/Agents-are-the-future-of-academic-research/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
 
     // Meta 标签
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
