@@ -16,7 +16,7 @@ docs/.vitepress/cache/
 .backup/
 
 # Source images (already copied to docs/public/img/)
-img/
+/img/
 
 # Project docs (not part of the site)
 PROJECT-COMPLETE-GUIDE.md
