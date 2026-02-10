@@ -1,0 +1,293 @@
+/**
+ * VitePress 自定义样式
+ * 学术博客风格定制
+ */
+
+/* ==================== 全局样式 ==================== */
+
+:root {
+  /* 主色调 - 学术蓝 */
+  --vp-c-brand-1: #3B82F6;
+  --vp-c-brand-2: #2563EB;
+  --vp-c-brand-3: #1D4ED8;
+  --vp-c-brand-soft: rgba(59, 130, 246, 0.14);
+
+  /* 字体配置 */
+  --vp-font-family-base: "Inter", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --vp-font-family-mono: "Fira Code", "JetBrains Mono", "Consolas", monospace;
+
+  /* 布局 */
+  --vp-layout-max-width: 1200px;
+}
+
+/* 深色模式 */
+.dark {
+  --vp-c-brand-1: #60A5FA;
+  --vp-c-brand-2: #3B82F6;
+  --vp-c-brand-3: #2563EB;
+}
+
+/* ==================== 排版优化 ==================== */
+
+/* 正文 */
+.vp-doc p {
+  line-height: 1.8;
+  margin: 16px 0;
+}
+
+/* 标题间距 */
+.vp-doc h1 {
+  margin-top: 48px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--vp-c-divider);
+  padding-bottom: 12px;
+}
+
+.vp-doc h2 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding-bottom: 8px;
+}
+
+.vp-doc h3 {
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.vp-doc h4 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+/* ==================== 代码块优化 ==================== */
+
+/* 代码块 */
+.vp-doc div[class*='language-'] {
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 行内代码 */
+.vp-doc :not(pre) > code {
+  background-color: var(--vp-code-bg);
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+/* 代码块行号 */
+.line-numbers-mode .line-number {
+  color: var(--vp-c-text-3);
+}
+
+/* ==================== 引用块样式 ==================== */
+
+.vp-doc blockquote {
+  border-left: 4px solid var(--vp-c-brand-1);
+  padding: 12px 20px;
+  margin: 20px 0;
+  background-color: var(--vp-c-bg-soft);
+  border-radius: 4px;
+}
+
+.vp-doc blockquote p {
+  margin: 8px 0;
+  color: var(--vp-c-text-2);
+}
+
+/* ==================== 表格样式 ==================== */
+
+.vp-doc table {
+  margin: 20px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.vp-doc th {
+  background-color: var(--vp-c-bg-soft);
+  font-weight: 600;
+}
+
+.vp-doc tr:hover {
+  background-color: var(--vp-c-bg-soft);
+}
+
+/* ==================== 链接样式 ==================== */
+
+.vp-doc a {
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.vp-doc a:hover {
+  text-decoration: underline;
+}
+
+/* ==================== 数学公式优化 ==================== */
+
+/* KaTeX 公式 */
+.katex {
+  font-size: 1.1em;
+}
+
+.katex-display {
+  margin: 20px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* ==================== 图片优化 ==================== */
+
+.vp-doc img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 24px 0;
+}
+
+/* ==================== 脚注样式 ==================== */
+
+.footnotes {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 2px solid var(--vp-c-divider);
+  font-size: 0.9em;
+  color: var(--vp-c-text-2);
+}
+
+.footnotes-list {
+  padding-left: 20px;
+}
+
+/* ==================== 任务列表 ==================== */
+
+.vp-doc .task-list-item {
+  list-style-type: none;
+}
+
+.vp-doc .task-list-item input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* ==================== Hero 图片尺寸 ==================== */
+
+.VPHero .VPImage {
+  max-width: 180px;
+  max-height: 180px;
+}
+
+@media (max-width: 768px) {
+  .VPHero .VPImage {
+    max-width: 120px;
+    max-height: 120px;
+  }
+}
+
+/* ==================== 首页优化 ==================== */
+
+.VPHome {
+  padding-bottom: 48px;
+}
+
+.VPFeature {
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.VPFeature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ==================== 侧边栏优化 ==================== */
+
+.VPSidebar {
+  padding-top: 24px;
+}
+
+.group .VPSidebarItem.level-0 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+/* ==================== 响应式优化 ==================== */
+
+@media (max-width: 768px) {
+  .vp-doc h1 {
+    font-size: 1.8em;
+    margin-top: 32px;
+  }
+
+  .vp-doc h2 {
+    font-size: 1.5em;
+    margin-top: 28px;
+  }
+
+  .vp-doc img {
+    margin: 16px 0;
+  }
+}
+
+/* ==================== 自定义容器 ==================== */
+
+/* 信息框 */
+.vp-doc .custom-block.info {
+  border-color: var(--vp-c-brand-1);
+}
+
+/* 警告框 */
+.vp-doc .custom-block.warning {
+  border-color: #F59E0B;
+}
+
+/* 危险框 */
+.vp-doc .custom-block.danger {
+  border-color: #EF4444;
+}
+
+/* 提示框 */
+.vp-doc .custom-block.tip {
+  border-color: #10B981;
+}
+
+/* ==================== Mermaid 图表优化 ==================== */
+
+.mermaid {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==================== 打印样式 ==================== */
+
+@media print {
+  .VPNav,
+  .VPSidebar,
+  .VPFooter,
+  .outline-container {
+    display: none !important;
+  }
+
+  .vp-doc {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .vp-doc a {
+    text-decoration: none;
+  }
+
+  .vp-doc a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: var(--vp-c-text-3);
+  }
+}

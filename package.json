@@ -1,0 +1,33 @@
+{
+  "name": "agents-academic-blog",
+  "version": "1.0.0",
+  "description": "Coding Agent for Academic Research",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "new-post": "node scripts/new-post.js"
+  },
+  "keywords": [
+    "Coding Agent",
+    "Academic Research",
+    "Claude Code",
+    "LLM",
+    "VitePress",
+    "Blog"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "mermaid": "^11.12.2",
+    "vitepress": "^1.5.0",
+    "vitepress-plugin-mermaid": "^2.0.17",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-mathjax3": "^4.3.2",
+    "markdown-it-task-lists": "^2.1.1",
+    "typescript": "^5.3.3"
+  }
+}
