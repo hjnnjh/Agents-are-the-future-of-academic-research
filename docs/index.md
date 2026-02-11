@@ -66,7 +66,7 @@ features:
 
 ## 📮 联系方式
 
-- **GitHub**: [hjnjh](https://github.com/hjnnjh)
+- **GitHub**: [@hjnnjh](https://github.com/hjnnjh)
 - **Email**: jinnan_huang@stu.xjtu.edu.cn
 
 ---
