@@ -14,6 +14,9 @@ export default withMermaid(defineConfig({
   // 语言配置
   lang: 'zh-CN',
 
+  // 排除 AI Agent 专用文档（不构建到网站）
+  srcExclude: ['**/AGENTS.md', '**/CLAUDE.md'],
+
   // 主题配置
   themeConfig: {
     // 网站标题
@@ -22,7 +25,7 @@ export default withMermaid(defineConfig({
     // 导航菜单
     nav: [
       { text: '首页', link: '/' },
-      { text: '文章', link: '/posts/2026/' },
+      { text: '文章', link: '/posts/agent-basics/2026-02-13-llm-agent-basics' },
       {
         text: '分类',
         items: [
@@ -40,11 +43,21 @@ export default withMermaid(defineConfig({
     sidebar: {
       '/posts/': [
         {
-          text: '2026 年',
+          text: 'Agent 基础',
           collapsed: false,
           items: [
-            { text: 'LLM Agent 到底是什么？', link: '/posts/2026/2026-02-13-llm-agent-basics' },
-            { text: 'Agent Skills 使用入门', link: '/posts/2026/2026-02-10-agent-skills-intro' }
+            { text: 'LLM Agent 简介', link: '/posts/agent-basics/2026-02-13-llm-agent-basics' },
+            { text: 'Agent 的记忆系统', link: '/posts/agent-basics/2026-02-14-agent-memory-systems' },
+            { text: '上下文工程', link: '/posts/agent-basics/2026-02-15-context-engineering' },
+            { text: '多 Agent 协作', link: '/posts/agent-basics/2026-02-16-multi-agent-collaboration' },
+            { text: 'Agent 评估', link: '/posts/agent-basics/2026-02-17-agent-evaluation' }
+          ]
+        },
+        {
+          text: 'Coding Agent 实践',
+          collapsed: false,
+          items: [
+            { text: 'Agent Skills 使用入门', link: '/posts/coding-agent/2026-02-10-agent-skills-intro' }
           ]
         }
       ],

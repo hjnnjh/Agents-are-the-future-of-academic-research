@@ -11,6 +11,7 @@ docs/.vitepress/cache/
 
 # Spec workflow
 .spec-workflow/
+.serena/
 
 # Backup
 .backup/
@@ -20,7 +21,7 @@ docs/.vitepress/cache/
 
 # Project docs (not part of the site)
 PROJECT-COMPLETE-GUIDE.md
-CLAUDE.md
+CONTENT-PLAN.md
 
 # Environment variables
 .env
