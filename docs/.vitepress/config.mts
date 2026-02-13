@@ -4,7 +4,7 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 
 // https://vitepress.dev/reference/site-config
 export default withMermaid(defineConfig({
-  title: "Coding Agent for Academic Research",
+  title: "Agent for Research",
   description: "LLM Agent（尤其是 Coding Agent）在学术研究中的应用经验分享",
 
   // 部署配置
@@ -17,7 +17,7 @@ export default withMermaid(defineConfig({
   // 主题配置
   themeConfig: {
     // 网站标题
-    siteTitle: 'Coding Agent for Academic Research',
+    siteTitle: 'Agent for Research',
 
     // 导航菜单
     nav: [
@@ -44,6 +44,18 @@ export default withMermaid(defineConfig({
           collapsed: false,
           items: [
             { text: 'Agent Skills 使用入门', link: '/posts/2026/2026-02-10-agent-skills-intro' }
+          ]
+        }
+      ],
+      '/categories/': [
+        {
+          text: '文章分类',
+          items: [
+            { text: 'Agent 基础', link: '/categories/agent-basics' },
+            { text: 'Coding Agent 实践', link: '/categories/coding-agent' },
+            { text: '学术科研案例', link: '/categories/research-cases' },
+            { text: '工具对比评测', link: '/categories/tools-comparison' },
+            { text: '经验心得分享', link: '/categories/insights' }
           ]
         }
       ]
@@ -159,7 +171,7 @@ export default withMermaid(defineConfig({
 
     // Open Graph
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:title', content: 'Coding Agent for Academic Research' }],
+    ['meta', { property: 'og:title', content: 'Agent for Research' }],
     ['meta', { property: 'og:description', content: 'LLM Agent 在学术研究中的应用经验分享' }],
 
     // Twitter Card
@@ -183,14 +195,13 @@ export default withMermaid(defineConfig({
   // sitemap 配置
   sitemap: {
     hostname: 'https://hjnnjh.github.io/Agents-are-the-future-of-academic-research'
-  }
-}),
-{
+  },
+
+  // Mermaid 配置
   mermaid: {
-    // Mermaid 配置选项
     // https://mermaid.js.org/config/setup/modules/mermaidAPI.html#mermaidapi-configuration-defaults
   },
   mermaidPlugin: {
     class: 'mermaid'
   }
-})
+}))
