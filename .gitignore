@@ -20,6 +20,7 @@ docs/.vitepress/cache/
 
 # Project docs (not part of the site)
 PROJECT-COMPLETE-GUIDE.md
+CLAUDE.md
 
 # Environment variables
 .env
