@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: "Coding Agent"
-  text: "for Academic Research"
+  text: "for Research"
   tagline: Coding Agent在学术研究中的应用经验分享
   image:
     dark: /img/Claude_AI_symbol.svg.png
@@ -53,7 +53,8 @@ features:
 
 ::: info 最近更新
 
-- 🆕 [Agent Skills 使用入门](/posts/2026/2026-02-10-agent-skills-intro) - 2026-02-10
+- 🆕 [LLM Agent 到底是什么？一文搞懂核心概念](/posts/2026/2026-02-13-llm-agent-basics) - 2026-02-13
+- 📝 [Agent Skills 使用入门](/posts/2026/2026-02-10-agent-skills-intro) - 2026-02-10
   :::
 
 ## 🤝 参与贡献

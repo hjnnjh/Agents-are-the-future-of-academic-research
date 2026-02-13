@@ -1,4 +1,4 @@
-# Agent for Research
+# Coding Agent for Research
 
 > LLM Agent（尤其是 Coding Agent）在学术研究中的应用经验分享
 

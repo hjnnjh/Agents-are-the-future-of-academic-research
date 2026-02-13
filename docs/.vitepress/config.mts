@@ -4,7 +4,7 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 
 // https://vitepress.dev/reference/site-config
 export default withMermaid(defineConfig({
-  title: "Agent for Research",
+  title: "Coding Agent for Research",
   description: "LLM Agent（尤其是 Coding Agent）在学术研究中的应用经验分享",
 
   // 部署配置
@@ -17,7 +17,7 @@ export default withMermaid(defineConfig({
   // 主题配置
   themeConfig: {
     // 网站标题
-    siteTitle: 'Agent for Research',
+    siteTitle: 'Coding Agent for Research',
 
     // 导航菜单
     nav: [
@@ -43,6 +43,7 @@ export default withMermaid(defineConfig({
           text: '2026 年',
           collapsed: false,
           items: [
+            { text: 'LLM Agent 到底是什么？', link: '/posts/2026/2026-02-13-llm-agent-basics' },
             { text: 'Agent Skills 使用入门', link: '/posts/2026/2026-02-10-agent-skills-intro' }
           ]
         }
@@ -171,7 +172,7 @@ export default withMermaid(defineConfig({
 
     // Open Graph
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:title', content: 'Agent for Research' }],
+    ['meta', { property: 'og:title', content: 'Coding Agent for Research' }],
     ['meta', { property: 'og:description', content: 'LLM Agent 在学术研究中的应用经验分享' }],
 
     // Twitter Card

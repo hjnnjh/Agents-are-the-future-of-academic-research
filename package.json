@@ -1,7 +1,7 @@
 {
   "name": "agents-academic-blog",
   "version": "1.0.0",
-  "description": "Agent for Research",
+  "description": "Coding Agent for Research",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
