@@ -278,8 +278,6 @@ cat .claude/skills/<skill-name>/SKILL.md
 
 ## 🔗 相关资源
 
-- [Agent Skills 使用入门](/posts/coding-agent/2026-02-10-agent-skills-intro)
-
 ---
 
 ## 💡 最佳实践

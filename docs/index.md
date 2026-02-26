@@ -53,12 +53,12 @@ features:
 
 ::: info 最近更新
 
+- 📝 [Claude Code 介绍与安装](/posts/coding-agent/2026-02-26-claude-code-intro) - 2026-02-26
 - 📝 [Agent 评估](/posts/agent-basics/2026-02-17-agent-evaluation) - 2026-02-17
 - 📝 [多 Agent 协作](/posts/agent-basics/2026-02-16-multi-agent-collaboration) - 2026-02-16
 - 📝 [上下文工程](/posts/agent-basics/2026-02-15-context-engineering) - 2026-02-15
 - 📝 [Agent 的记忆系统](/posts/agent-basics/2026-02-14-agent-memory-systems) - 2026-02-14
 - 📝 [LLM Agent 简介](/posts/agent-basics/2026-02-13-llm-agent-basics) - 2026-02-13
-- 📝 [Agent Skills 使用入门](/posts/coding-agent/2026-02-10-agent-skills-intro) - 2026-02-10
   :::
 
 ## 🤝 参与贡献

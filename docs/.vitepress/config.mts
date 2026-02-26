@@ -57,7 +57,7 @@ export default withMermaid(defineConfig({
           text: 'Coding Agent 实践',
           collapsed: false,
           items: [
-            { text: 'Agent Skills 使用入门', link: '/posts/coding-agent/2026-02-10-agent-skills-intro' }
+            { text: 'Claude Code 介绍与安装', link: '/posts/coding-agent/2026-02-26-claude-code-intro' }
           ]
         }
       ],
