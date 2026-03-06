@@ -43,4 +43,6 @@
 
 ## 文章列表
 
-- [Claude Code 介绍与安装](/posts/coding-agent/2026-02-26-claude-code-intro) — Claude Code 是什么、各平台安装方法、账号认证与第三方 API 接入
+- [Claude Code 介绍与安装 (Part 1)](/posts/coding-agent/2026-02-26-claude-code-intro) — Claude Code 是什么、各平台安装方法、账号认证与第三方 API 接入
+- [Claude Code 配置进阶：zcf 工具介绍 (Part 2)](/posts/coding-agent/2026-03-07-claude-code-zcf) — 一键完成 Claude Code 环境初始化，涵盖工作流、MCP 服务、CCR 路由配置
+- [Claude Code Router (CCR) 使用指南 (Part 3)](/posts/coding-agent/2026-03-07-claude-code-router) — 本地模型路由代理工具，按任务类型分配不同模型，灵活控制成本与性能

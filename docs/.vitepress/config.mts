@@ -57,7 +57,9 @@ export default withMermaid(defineConfig({
           text: 'Coding Agent 实践',
           collapsed: false,
           items: [
-            { text: 'Claude Code 介绍与安装', link: '/posts/coding-agent/2026-02-26-claude-code-intro' }
+            { text: 'Claude Code 介绍与安装 (Part 1)', link: '/posts/coding-agent/2026-02-26-claude-code-intro' },
+            { text: 'Claude Code 配置进阶：zcf 工具介绍 (Part 2)', link: '/posts/coding-agent/2026-03-07-claude-code-zcf' },
+            { text: 'Claude Code Router (CCR) 使用指南 (Part 3)', link: '/posts/coding-agent/2026-03-07-claude-code-router' }
           ]
         }
       ],

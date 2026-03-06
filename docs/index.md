@@ -48,12 +48,17 @@ features:
     details: 集成 academic-research-writer, prompt-optimizer, academic-response-writer 等学术研究场景常用 Skills，全面提升学术写作效率
     link: /SKILLS-GUIDE
 ---
+> *不要温和地走进那个良夜*
+>
+> — 迪兰·托马斯（Dylan Thomas）
 
 ## 📚 最新文章
 
 ::: info 最近更新
 
-- 📝 [Claude Code 介绍与安装](/posts/coding-agent/2026-02-26-claude-code-intro) - 2026-02-26
+- 📝 [Claude Code Router (CCR) 使用指南 (Part 3)](/posts/coding-agent/2026-03-07-claude-code-router) - 2026-03-07
+- 📝 [Claude Code 配置进阶：zcf 工具介绍 (Part 2)](/posts/coding-agent/2026-03-07-claude-code-zcf) - 2026-03-07
+- 📝 [Claude Code 介绍与安装 (Part 1)](/posts/coding-agent/2026-02-26-claude-code-intro) - 2026-02-26
 - 📝 [Agent 评估](/posts/agent-basics/2026-02-17-agent-evaluation) - 2026-02-17
 - 📝 [多 Agent 协作](/posts/agent-basics/2026-02-16-multi-agent-collaboration) - 2026-02-16
 - 📝 [上下文工程](/posts/agent-basics/2026-02-15-context-engineering) - 2026-02-15
