@@ -18,7 +18,7 @@ featured: true
 本文由 AI (Claude) 辅助生成，内容经过人工审核与编辑。部分描述可能存在简化表述，请读者结合实际使用体验参考。
 :::
 
-# Claude Code 介绍与安装
+# Claude Code 介绍与安装 (Part 1)
 
 ::: info 本文概览
 

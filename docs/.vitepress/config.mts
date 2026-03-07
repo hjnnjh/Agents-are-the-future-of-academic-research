@@ -60,7 +60,13 @@ export default withMermaid(defineConfig({
             { text: 'Claude Code 介绍与安装 (Part 1)', link: '/posts/coding-agent/2026-02-26-claude-code-intro' },
             { text: 'Claude Code 配置进阶：zcf 工具介绍 (Part 2)', link: '/posts/coding-agent/2026-03-07-claude-code-zcf' },
             { text: 'Claude Code Router (CCR) 使用指南 (Part 3)', link: '/posts/coding-agent/2026-03-07-claude-code-router' },
-            { text: '将 GitHub Copilot 订阅接入 Claude Code (Part 4)', link: '/posts/coding-agent/2026-03-07-claude-code-copilot-api' }
+            { text: '将 GitHub Copilot 订阅接入 Claude Code (Part 4)', link: '/posts/coding-agent/2026-03-07-claude-code-copilot-api' },
+            { text: 'Claude Code 记忆系统详解', link: '/posts/coding-agent/2026-03-07-claude-code-memory' },
+            { text: 'MCP：让 Claude Code 连接外部世界', link: '/posts/coding-agent/2026-03-07-claude-code-mcp' },
+            { text: 'Subagent：Claude Code 的并行任务引擎', link: '/posts/coding-agent/2026-03-07-claude-code-subagent' },
+            { text: 'Claude Code Skills：打造你的专属 AI 技能包', link: '/posts/coding-agent/2026-03-07-claude-code-skills' },
+            { text: 'Claude Code Hooks：用确定性保证自动化工作流', link: '/posts/coding-agent/2026-03-07-claude-code-hooks' },
+            { text: 'Claude Code 进阶功能速览', link: '/posts/coding-agent/2026-03-07-claude-code-advanced-features' },
           ]
         }
       ],

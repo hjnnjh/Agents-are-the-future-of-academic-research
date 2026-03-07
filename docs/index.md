@@ -56,6 +56,12 @@ features:
 
 ::: info 最近更新
 
+- 📝 [Claude Code 进阶功能速览](/posts/coding-agent/2026-03-07-claude-code-advanced-features) - 2026-03-07
+- 📝 [Claude Code Hooks：用确定性保证自动化工作流](/posts/coding-agent/2026-03-07-claude-code-hooks) - 2026-03-07
+- 📝 [Claude Code Skills：打造你的专属 AI 技能包](/posts/coding-agent/2026-03-07-claude-code-skills) - 2026-03-07
+- 📝 [Subagent：Claude Code 的并行任务引擎](/posts/coding-agent/2026-03-07-claude-code-subagent) - 2026-03-07
+- 📝 [MCP：让 Claude Code 连接外部世界](/posts/coding-agent/2026-03-07-claude-code-mcp) - 2026-03-07
+- 📝 [Claude Code 记忆系统详解](/posts/coding-agent/2026-03-07-claude-code-memory) - 2026-03-07
 - 📝 [将 GitHub Copilot 订阅接入 Claude Code (Part 4)](/posts/coding-agent/2026-03-07-claude-code-copilot-api) - 2026-03-07
 - 📝 [Claude Code Router (CCR) 使用指南 (Part 3)](/posts/coding-agent/2026-03-07-claude-code-router) - 2026-03-07
 - 📝 [Claude Code 配置进阶：zcf 工具介绍 (Part 2)](/posts/coding-agent/2026-03-07-claude-code-zcf) - 2026-03-07
