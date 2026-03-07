@@ -56,6 +56,7 @@ features:
 
 ::: info 最近更新
 
+- 📝 [将 GitHub Copilot 订阅接入 Claude Code (Part 4)](/posts/coding-agent/2026-03-07-claude-code-copilot-api) - 2026-03-07
 - 📝 [Claude Code Router (CCR) 使用指南 (Part 3)](/posts/coding-agent/2026-03-07-claude-code-router) - 2026-03-07
 - 📝 [Claude Code 配置进阶：zcf 工具介绍 (Part 2)](/posts/coding-agent/2026-03-07-claude-code-zcf) - 2026-03-07
 - 📝 [Claude Code 介绍与安装 (Part 1)](/posts/coding-agent/2026-02-26-claude-code-intro) - 2026-02-26
