@@ -172,34 +172,96 @@
   margin-right: 8px;
 }
 
-/* ==================== Hero 图片尺寸 ==================== */
+/* ==================== 主页 Codex 风格适配 ==================== */
 
-.VPHero .VPImage {
-  max-width: 180px;
-  max-height: 180px;
+/* 主页导航栏透明化：在深色 Hero 上方时 */
+:has(.home-page) .VPNav {
+  background: transparent !important;
+  border-bottom: none !important;
 }
 
-@media (max-width: 768px) {
-  .VPHero .VPImage {
-    max-width: 120px;
-    max-height: 120px;
-  }
+:has(.home-page) .VPNav .VPNavBar {
+  background: transparent !important;
+  border-bottom: none !important;
 }
 
-/* ==================== 首页优化 ==================== */
-
-.VPHome {
-  padding-bottom: 48px;
+:has(.home-page) .VPNav .VPNavBar .content {
+  background: transparent !important;
 }
 
-.VPFeature {
-  border-radius: 12px;
-  transition: all 0.3s;
+:has(.home-page) .VPNav .VPNavBar .curtain {
+  display: none !important;
 }
 
-.VPFeature:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+/* 导航栏搜索按钮背景适配主页配色 */
+:has(.home-page) .VPNavBar .DocSearch-Button,
+:has(.home-page) .VPNavBar button[aria-label*="搜索"],
+:has(.home-page) .VPNavBarSearch .DocSearch-Button,
+:has(.home-page) .VPNavBarSearchButton {
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.dark:has(.home-page) .VPNavBar .DocSearch-Button,
+.dark:has(.home-page) .VPNavBar button[aria-label*="搜索"],
+.dark:has(.home-page) .VPNavBarSearch .DocSearch-Button,
+.dark:has(.home-page) .VPNavBarSearchButton {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 搜索框 (mini-search) 适配 */
+:has(.home-page) .VPNavBar .VPNavBarSearch button {
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.dark:has(.home-page) .VPNavBar .VPNavBarSearch button {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 深色模式下导航栏文字在深色 Hero 上保持可见 */
+.dark:has(.home-page) .VPNavBar .VPNavBarTitle .title {
+  color: rgba(241, 245, 249, 0.9) !important;
+}
+
+/* 深色模式下导航栏链接颜色 */
+.dark:has(.home-page) .VPNavBar .VPNavBarMenu a,
+.dark:has(.home-page) .VPNavBar .VPNavBarMenu button {
+  color: rgba(241, 245, 249, 0.8) !important;
+}
+
+/* 主页不需要侧边栏和页脚 */
+:has(.home-page) .VPSidebar,
+:has(.home-page) .VPFooter,
+:has(.home-page) .VPDocFooter {
+  display: none !important;
+}
+
+/* 主页内容区域全宽 */
+:has(.home-page) .VPContent .VPPage {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+:has(.home-page) .VPContent {
+  padding: 0 !important;
+}
+
+/* VitePress page 布局下的 container 去掉限宽和内边距 */
+:has(.home-page) .VPDoc .container {
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+:has(.home-page) .VPDoc .container .content {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+:has(.home-page) .vp-doc {
+  padding: 0 !important;
 }
 
 /* ==================== 侧边栏优化 ==================== */
