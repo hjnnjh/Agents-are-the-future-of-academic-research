@@ -6,11 +6,13 @@
     <section class="hero-section">
       <div class="hero-content">
         <h1 class="hero-title">
-          <span class="hero-title-gradient">Coding Agent</span>
-          <br />
-          <span class="hero-title-gradient">for Research</span>
+          <span class="hero-title-gradient">Coding Agent for Research</span>
         </h1>
         <p class="hero-tagline">Coding Agent 在学术研究中的应用经验分享</p>
+        <blockquote class="hero-quote">
+          <p><em>不要温和地走进那个良夜</em></p>
+          <footer>-- 迪兰·托马斯（Dylan Thomas）</footer>
+        </blockquote>
         <div class="hero-actions">
           <a class="hero-btn hero-btn-primary" href="/Agents-are-the-future-of-academic-research/posts/agent-basics/2026-02-13-llm-agent-basics">
             开始阅读
@@ -33,7 +35,6 @@
             :href="withBase(feature.link)"
             class="feature-card"
           >
-            <span class="feature-icon">{{ feature.icon }}</span>
             <h3 class="feature-title">{{ feature.title }}</h3>
             <p class="feature-desc">{{ feature.details }}</p>
           </a>
@@ -44,11 +45,6 @@
     <!-- ===== Articles Section ===== -->
     <section class="articles-section">
       <div class="section-container">
-        <blockquote class="articles-quote">
-          <p><em>不要温和地走进那个良夜</em></p>
-          <footer>-- 迪兰·托马斯（Dylan Thomas）</footer>
-        </blockquote>
-
         <h2 class="section-title">最新文章</h2>
         <div class="articles-list">
           <a
@@ -107,37 +103,31 @@ import CharacterCanvas from './CharacterCanvas.vue'
 
 const features = [
   {
-    icon: '\u{1F916}',
     title: 'Agent 基础',
     details: '深入理解 LLM Agent 的核心概念、架构原理和工作机制，为实践应用打下坚实基础',
     link: '/categories/agent-basics',
   },
   {
-    icon: '\u{1F4BB}',
     title: 'Coding Agent 实践',
     details: 'Claude Code, OpenCode 等工具的深度使用技巧，提升编程效率的最佳实践',
     link: '/categories/coding-agent',
   },
   {
-    icon: '\u{1F52C}',
     title: '学术科研案例',
     details: 'Coding Agent 在文献调研、数据分析、论文写作等学术场景中的真实应用案例',
     link: '/categories/research-cases',
   },
   {
-    icon: '\u{1F6E0}\uFE0F',
     title: '工具对比评测',
     details: '主流 Coding Agent 工具的横向对比、性能评测和选型建议',
     link: '/categories/tools-comparison',
   },
   {
-    icon: '\u{1F4A1}',
     title: '经验心得分享',
     details: '实践总结、踩坑记录、技巧分享，帮助你少走弯路',
     link: '/categories/insights',
   },
   {
-    icon: '\u{1F680}',
     title: '我的常用 Skills',
     details: '集成 academic-research-writer, prompt-optimizer 等学术研究场景常用 Skills，全面提升学术写作效率',
     link: '/SKILLS-GUIDE',
@@ -166,13 +156,13 @@ const articles = [
 <style scoped>
 /* ===== Page-level unified background ===== */
 .home-page {
-  /* Light mode page colors */
-  --home-bg: #e8ecf4;
-  --home-bg-soft: #d8dee8;
-  --home-text-1: #1e293b;
-  --home-text-2: rgba(30, 41, 59, 0.7);
-  --home-text-3: rgba(30, 41, 59, 0.5);
-  --home-divider: rgba(30, 41, 59, 0.1);
+  /* Light mode page colors — matching VitePress defaults */
+  --home-bg: #ffffff;
+  --home-bg-soft: #f6f6f7;
+  --home-text-1: rgba(60, 60, 67);
+  --home-text-2: rgba(60, 60, 67, 0.78);
+  --home-text-3: rgba(60, 60, 67, 0.56);
+  --home-divider: rgba(60, 60, 67, 0.12);
   --home-brand-1: #3B82F6;
 
   position: relative;
@@ -189,10 +179,10 @@ const articles = [
   justify-content: center;
 
   /* Light mode hero specific */
-  --hero-tagline: rgba(30, 41, 59, 0.6);
+  --hero-tagline: rgba(60, 60, 67, 0.78);
   --hero-btn-secondary-bg: rgba(0, 0, 0, 0.04);
-  --hero-btn-secondary-color: rgba(30, 41, 59, 0.7);
-  --hero-btn-secondary-border: rgba(0, 0, 0, 0.1);
+  --hero-btn-secondary-color: rgba(60, 60, 67, 0.78);
+  --hero-btn-secondary-border: rgba(60, 60, 67, 0.12);
   --hero-btn-secondary-hover: rgba(0, 0, 0, 0.08);
 }
 
@@ -206,7 +196,7 @@ const articles = [
 }
 
 .hero-title {
-  font-family: "Fira Code", "JetBrains Mono", "Consolas", monospace;
+  font-family: "Inter", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 4rem;
   font-weight: 700;
   line-height: 1.2;
@@ -226,6 +216,26 @@ const articles = [
   color: var(--hero-tagline);
   margin: 0 0 40px;
   font-weight: 400;
+}
+
+.hero-quote {
+  margin: 0 0 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  text-align: center;
+}
+
+.hero-quote p {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  color: var(--home-text-2);
+  letter-spacing: 0.02em;
+}
+
+.hero-quote footer {
+  font-size: 0.85rem;
+  color: var(--home-text-3);
 }
 
 .hero-actions {
@@ -316,12 +326,6 @@ const articles = [
   box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
 }
 
-.feature-icon {
-  font-size: 2rem;
-  display: block;
-  margin-bottom: 16px;
-}
-
 .feature-title {
   font-size: 1.1rem;
   font-weight: 600;
@@ -341,25 +345,6 @@ const articles = [
   position: relative;
   z-index: 1;
   padding: 0 0 80px;
-}
-
-.articles-quote {
-  border-left: 4px solid var(--home-brand-1);
-  padding: 16px 24px;
-  margin: 0 0 48px;
-  background: var(--home-bg-soft);
-  border-radius: 4px;
-}
-
-.articles-quote p {
-  margin: 0 0 4px;
-  color: var(--home-text-2);
-  font-size: 1rem;
-}
-
-.articles-quote footer {
-  color: var(--home-text-3);
-  font-size: 0.875rem;
 }
 
 .articles-list {
@@ -516,20 +501,20 @@ const articles = [
 <!-- Non-scoped styles for dark mode (needs to target .dark on <html>) -->
 <style>
 .dark .home-page {
-  --home-bg: #0f1020;
-  --home-bg-soft: rgba(255, 255, 255, 0.04);
-  --home-text-1: #F1F5F9;
-  --home-text-2: rgba(241, 245, 249, 0.6);
-  --home-text-3: rgba(241, 245, 249, 0.4);
-  --home-divider: rgba(255, 255, 255, 0.08);
+  --home-bg: #1b1b1f;
+  --home-bg-soft: #202127;
+  --home-text-1: rgba(255, 255, 245, 0.86);
+  --home-text-2: rgba(235, 235, 245, 0.6);
+  --home-text-3: rgba(235, 235, 245, 0.38);
+  --home-divider: rgba(84, 84, 84, 0.48);
   --home-brand-1: #60A5FA;
 }
 
 .dark .hero-section {
-  --hero-tagline: rgba(241, 245, 249, 0.6);
+  --hero-tagline: rgba(235, 235, 245, 0.6);
   --hero-btn-secondary-bg: rgba(255, 255, 255, 0.06);
-  --hero-btn-secondary-color: rgba(241, 245, 249, 0.8);
-  --hero-btn-secondary-border: rgba(255, 255, 255, 0.1);
+  --hero-btn-secondary-color: rgba(255, 255, 245, 0.86);
+  --hero-btn-secondary-border: rgba(84, 84, 84, 0.48);
   --hero-btn-secondary-hover: rgba(255, 255, 255, 0.1);
 }
 

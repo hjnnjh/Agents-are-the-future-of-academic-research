@@ -221,15 +221,15 @@
   border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
-/* 深色模式下导航栏文字在深色 Hero 上保持可见 */
+/* 深色模式下导航栏文字在透明背景上保持可见 */
 .dark:has(.home-page) .VPNavBar .VPNavBarTitle .title {
-  color: rgba(241, 245, 249, 0.9) !important;
+  color: rgba(255, 255, 245, 0.86) !important;
 }
 
 /* 深色模式下导航栏链接颜色 */
 .dark:has(.home-page) .VPNavBar .VPNavBarMenu a,
 .dark:has(.home-page) .VPNavBar .VPNavBarMenu button {
-  color: rgba(241, 245, 249, 0.8) !important;
+  color: rgba(255, 255, 245, 0.86) !important;
 }
 
 /* 主页不需要侧边栏和页脚 */
