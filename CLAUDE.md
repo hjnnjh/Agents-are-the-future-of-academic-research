@@ -1,4 +1,6 @@
-# CLAUDE.md - 项目索引文档
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 > 本文件由架构扫描自动生成，供 AI 助手快速理解项目全貌。人类开发者亦可作为项目导航参考。
 
@@ -6,6 +8,7 @@
 
 | 日期 | 操作 | 说明 |
 |------|------|------|
+| 2026-03-13 | 增量更新 | 新增 image-generator/humanizer-zh Skills（共 16 个）、新增 scripts/image-generator 图片生成脚本、Coding Agent 系列增至 10 篇（全站 15 篇） |
 | 2026-02-14 | 增量更新 | 文章目录结构迁移（按分类组织）、新增 5 篇 Agent 基础文章、Skills 增至 14 个、侧边栏改为分类展示 |
 | 2026-02-13 | 初始创建 | 首次全仓扫描，覆盖率 100% |
 
@@ -32,8 +35,9 @@
 | 语言 | TypeScript / CSS / Markdown | 配置用 TS，内容用 MD |
 | 图表 | Mermaid 11.x + vitepress-plugin-mermaid | 流程图/架构图 |
 | 数学公式 | markdown-it-mathjax3 (KaTeX) | LaTeX 公式渲染 |
+| 图片生成 | Python + httpx + OpenRouter API | Gemini 图片生成（`scripts/image-generator/`） |
 | 部署 | GitHub Actions -> GitHub Pages | push main 自动部署 |
-| AI 工具链 | 14 个 Claude Code Skills | 写作/图表/质量/维护/审查 |
+| AI 工具链 | 16 个 Claude Code Skills | 写作/图表/图片/质量/维护/审查 |
 
 ---
 
@@ -44,6 +48,7 @@
 ```mermaid
 graph TD
     ROOT["(根) Agents-are-the-future-of-academic-research"] --> DOCS["docs/"]
+    ROOT --> SCRIPTS["scripts/"]
     ROOT --> GITHUB[".github/"]
     ROOT --> CLAUDE_DIR[".claude/"]
 
@@ -61,7 +66,7 @@ graph TD
     THEME --> CUSTOM_CSS["custom.css"]
 
     POSTS --> AB["agent-basics/ (5 篇)"]
-    POSTS --> CA["coding-agent/ (1 篇)"]
+    POSTS --> CA["coding-agent/ (10 篇)"]
 
     CATEGORIES --> CAT1["agent-basics.md"]
     CATEGORIES --> CAT2["coding-agent.md"]
@@ -73,10 +78,14 @@ graph TD
 
     PUBLIC --> IMG["img/"]
 
+    SCRIPTS --> IMGGEN["image-generator/"]
+    IMGGEN --> PYPROJECT["pyproject.toml"]
+    IMGGEN --> GENPY["generate_image.py"]
+
     GITHUB --> WORKFLOWS["workflows/"]
     WORKFLOWS --> DEPLOY["deploy.yml"]
 
-    CLAUDE_DIR --> SKILLS[".claude/skills/ (14 个)"]
+    CLAUDE_DIR --> SKILLS[".claude/skills/ (16 个)"]
 
     click SKILLS_GUIDE "./docs/SKILLS-GUIDE.md" "Skills 使用指南"
 ```
@@ -92,13 +101,14 @@ graph TD
 | 站点配置 | `docs/.vitepress/config.mts` | VitePress 核心配置（导航/侧边栏/Markdown/SEO/Mermaid） |
 | 自定义主题 | `docs/.vitepress/theme/` | 扩展默认主题 + 学术蓝配色 CSS |
 | 首页 | `docs/index.md` | Hero 布局 + Features 卡片 |
-| 博客文章 | `docs/posts/{category}/` | 按分类目录组织，含 frontmatter 元数据（共 6 篇） |
+| 博客文章 | `docs/posts/{category}/` | 按分类目录组织，含 frontmatter 元数据（共 15 篇） |
 | 分类页 | `docs/categories/` | 5 大分类的索引页 |
 | 关于页 | `docs/about/index.md` | 站点介绍与联系方式 |
-| Skills 指南 | `docs/SKILLS-GUIDE.md` | 14 个 Claude Code Skills 的使用文档 |
-| 静态资源 | `docs/public/img/` | Hero 图片（PNG） |
+| Skills 指南 | `docs/SKILLS-GUIDE.md` | 16 个 Claude Code Skills 的使用文档 |
+| 静态资源 | `docs/public/img/` | Hero 图片（PNG/SVG） |
+| 图片生成脚本 | `scripts/image-generator/` | Python 脚本，通过 OpenRouter API 调用 Gemini 生成博客图片 |
 | CI/CD | `.github/workflows/deploy.yml` | GitHub Actions 自动构建部署 |
-| Claude Skills | `.claude/skills/` | 14 个 SKILL.md 定义文件 |
+| Claude Skills | `.claude/skills/` | 16 个 SKILL.md 定义文件 |
 
 ---
 
@@ -108,6 +118,7 @@ graph TD
 
 - Node.js >= 18.0.0 (推荐 20.x LTS)
 - npm >= 9.0.0
+- Python >= 3.10 + [uv](https://docs.astral.sh/uv/)（仅图片生成脚本需要）
 
 ### 常用命令
 
@@ -124,8 +135,8 @@ npm run build        # 输出到 docs/.vitepress/dist/
 # 预览构建结果
 npm run preview      # -> http://localhost:4173
 
-# 创建新文章（脚本未实现）
-npm run new-post     # 引用 scripts/new-post.js，当前文件不存在
+# 图片生成（需要 .env 中配置 OPENROUTER_API_KEY）
+cd scripts/image-generator && uv run generate_image.py --prompt "..." --output "../../docs/public/img/xxx.png"
 ```
 
 ### 部署
@@ -141,7 +152,7 @@ npm run new-post     # 引用 scripts/new-post.js，当前文件不存在
 博客内容分为 5 大类：
 
 1. **Agent 基础** (`/categories/agent-basics`) - LLM Agent 核心概念与架构 [5 篇]
-2. **Coding Agent 实践** (`/categories/coding-agent`) - Claude Code/OpenCode 深度技巧 [1 篇]
+2. **Coding Agent 实践** (`/categories/coding-agent`) - Claude Code/OpenCode 深度技巧 [10 篇]
 3. **学术科研案例** (`/categories/research-cases`) - 文献/数据/论文场景应用 [待填充]
 4. **工具对比评测** (`/categories/tools-comparison`) - 横向对比与选型 [待填充]
 5. **经验心得分享** (`/categories/insights`) - 踩坑记录与效率技巧 [待填充]
@@ -155,7 +166,16 @@ npm run new-post     # 引用 scripts/new-post.js，当前文件不存在
 | Agent 基础 | 上下文工程 | 2026-02-15 |
 | Agent 基础 | 多 Agent 协作 | 2026-02-16 |
 | Agent 基础 | Agent 评估 | 2026-02-17 |
-| Coding Agent 实践 | Agent Skills 使用入门 | 2026-02-10 |
+| Coding Agent | Claude Code 介绍与安装 (Part 1) | 2026-02-26 |
+| Coding Agent | Claude Code 配置进阶：zcf 工具介绍 (Part 2) | 2026-03-07 |
+| Coding Agent | Claude Code Router (CCR) 使用指南 (Part 3) | 2026-03-07 |
+| Coding Agent | 将 GitHub Copilot 订阅接入 Claude Code (Part 4) | 2026-03-07 |
+| Coding Agent | Claude Code 记忆系统详解 | 2026-03-07 |
+| Coding Agent | MCP：让 Claude Code 连接外部世界 | 2026-03-07 |
+| Coding Agent | Subagent：Claude Code 的并行任务引擎 | 2026-03-07 |
+| Coding Agent | Claude Code Skills：打造你的专属 AI 技能包 | 2026-03-07 |
+| Coding Agent | Claude Code Hooks：用确定性保证自动化工作流 | 2026-03-07 |
+| Coding Agent | Claude Code 进阶功能速览 | 2026-03-07 |
 
 ---
 
@@ -245,6 +265,14 @@ featured: false         # 是否精选
 - 主色调为"学术蓝"（`#3B82F6`）
 - 支持深色模式变量覆盖
 
+### 图片生成
+
+脚本: `scripts/image-generator/generate_image.py`
+- 前提：项目根目录 `.env` 中配置 `OPENROUTER_API_KEY`
+- 使用 `uv run` 执行，首次自动安装依赖
+- 支持参数：`--prompt`、`--output`、`--aspect-ratio`（默认 1:1）、`--image-size`（默认 1K）、`--model`
+- 配套 Skill（`.claude/skills/image-generator/`）提供两阶段工作流：Claude 优化提示词 -> 脚本生成图片
+
 ### 已知问题
 
 1. `scripts/new-post.js` 在 `package.json` 中引用但文件不存在
@@ -252,12 +280,13 @@ featured: false         # 是否精选
 
 ### Claude Code Skills
 
-项目集成了 14 个 Claude Code Skills，定义在 `.claude/skills/` 目录下：
+项目集成了 16 个 Claude Code Skills，定义在 `.claude/skills/` 目录下：
 
 | 类别 | Skills |
 |------|--------|
-| 写作与内容 | markdown-tools, content-research-writer, prompt-optimizer, beautiful-prose |
+| 写作与内容 | markdown-tools, content-research-writer, prompt-optimizer, beautiful-prose, humanizer-zh |
 | 技术工具 | mermaid-tools, changelog-generator, docs-cleaner |
+| 图片生成 | image-generator |
 | 设计展示 | ui-designer, cli-demo-generator |
 | 文档与质量 | pdf-creator, fact-checker, skill-reviewer |
 | 审查（只读） | content-reviewer, markdown-reviewer |
