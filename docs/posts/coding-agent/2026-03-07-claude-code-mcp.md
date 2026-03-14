@@ -10,7 +10,7 @@ tags:
   - model-context-protocol
   - tools
 difficulty: intermediate
-summary: "MCP（Model Context Protocol）是 AI 工具连接外部世界的标准接口。本文介绍 MCP 的工作原理、Claude Code 中的配置方法、常用 MCP 服务推荐，以及对学术科研用户最有价值的工具组合。"
+summary: "MCP（Model Context Protocol）是 AI 工具连接外部服务的标准接口。本文介绍 MCP 的工作原理、Claude Code 中的配置方法、常用 MCP 服务推荐，以及适合学术科研用户的工具组合。"
 featured: false
 ---
 
@@ -22,7 +22,7 @@ featured: false
 
 ::: info 本文概览
 
-- 🎯 **目标读者**：希望扩展 Claude Code 能力边界、连接外部工具的用户
+- 🎯 **目标读者**：希望让 Claude Code 连接外部工具和服务的用户
 - ⏱️ **阅读时间**：约 15 分钟
 - 📚 **知识要点**：MCP 工作原理、配置命令、常用 MCP 服务、学术科研推荐
 :::
@@ -53,7 +53,7 @@ graph LR
 - **MCP Server**：封装了外部服务的访问逻辑，对外暴露标准化的"工具"列表
 - **外部服务**：GitHub、数据库、网络搜索引擎等真实服务
 
-这个设计的核心价值在于**标准化**：Claude Code 只需要学一种协议（MCP），就能与所有兼容服务通信，而不需要为每个服务单独适配。
+这个设计的好处是**标准化**：Claude Code 只需要支持一种协议（MCP），就能与所有兼容服务通信，不需要为每个服务单独适配。
 
 ### 传输模式
 
@@ -177,7 +177,7 @@ claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp@latest
 
 **用途**：让 Claude Code 控制浏览器，实现网页操作、截图、表单填写、数据抓取等。
 
-科研场景下特别有用：自动从学术数据库下载数据、抓取期刊网站上的文献信息、自动化提交实验结果。
+科研场景下的典型用法：自动从学术数据库下载数据、抓取期刊网站上的文献信息、自动化提交实验结果。
 
 ```bash
 claude mcp add --scope user playwright -- npx -y @playwright/mcp@latest
@@ -293,16 +293,16 @@ claude mcp add --scope user github \
 
 ## 小结
 
-MCP 让 Claude Code 从一个代码编辑工具变成了一个能与外部世界真正交互的 Agent：
+MCP 让 Claude Code 能够访问外部服务和数据源：
 
 - **原理**：标准化的客户端-服务端协议，Claude Code 作为客户端，连接各类 MCP Server
 - **配置**：`claude mcp add` 命令，三种作用域（local/project/user），stdio 是最常用模式
 - **推荐工具**：Context7（文档）、Playwright（浏览器）、GitHub（仓库）、Serena（代码分析）
 
-MCP 生态仍在快速发展，官方注册表已有数千个服务可用。随着使用深入，你会逐渐找到最适合自己工作流的 MCP 组合。
+MCP 生态仍在快速发展，官方注册表已有数千个服务可用。可以根据自己的工作流需求选择合适的 MCP 组合。
 
 ::: tip 下一步
-下一篇文章将介绍 **Subagent（子代理）**——Claude Code 内置的并行任务执行机制，了解如何让多个专业子代理同时工作，大幅提升复杂任务的处理效率。
+下一篇文章将介绍 **Subagent（子代理）**，Claude Code 内置的并行任务执行机制，让多个子代理同时处理不同子任务。
 :::
 
 ## 参考资料

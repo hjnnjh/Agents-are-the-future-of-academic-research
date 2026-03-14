@@ -10,7 +10,7 @@ tags:
   - CLAUDE.md
   - configuration
 difficulty: intermediate
-summary: "Claude Code 的记忆系统是其最被低估的生产力杠杆之一。本文详细介绍 CLAUDE.md 的六层层级结构、编写最佳实践、@imports 模块化拆分，以及自动记忆（MEMORY.md）机制，帮你把 Claude Code 真正调教成了解你项目的长期伙伴。"
+summary: "本文详细介绍 Claude Code 记忆系统：CLAUDE.md 的六层层级结构、编写实践、@imports 模块化拆分，以及自动记忆（MEMORY.md）机制，让 Claude Code 持续记住你的项目规范和偏好。"
 featured: false
 ---
 
@@ -31,7 +31,7 @@ featured: false
 
 Claude Code 的每次会话都从一个**全新的上下文窗口**开始。它不记得上次你告诉它"这个项目用 ruff 格式化，不用 black"，也不知道你的数据文件放在哪个目录，更不清楚你的提交规范。
 
-如果没有记忆系统，你需要在每次会话开始时重复说明这些基础信息——这不仅低效，还会白白占用宝贵的上下文空间。
+如果没有记忆系统，你需要在每次会话开始时重复说明这些基础信息，既浪费时间，又占用上下文空间。
 
 Claude Code 的记忆系统通过两种机制解决这个问题：
 
@@ -253,7 +253,7 @@ globs: "**/*.py"
 | **适合存储** | 团队规范、技术约束 | 调试洞察、偏好发现 |
 | **需要维护** | 是（定期审查） | 较少（Claude 自动管理） |
 
-两者结合使用效果最佳：CLAUDE.md 告诉 Claude "规则是什么"，MEMORY.md 帮 Claude 记住"我们曾经遇到过什么"。
+两者配合使用：CLAUDE.md 告诉 Claude "规则是什么"，MEMORY.md 帮 Claude 记住"之前遇到过什么"。
 
 ::: info 自动记忆的激活
 自动记忆功能目前在 Claude Code 中默认启用。你可以在 `/settings` 中查看和管理记忆相关配置。
@@ -263,7 +263,7 @@ globs: "**/*.py"
 
 ## 实践建议：学术科研用户
 
-科研项目往往有一些共同特征：数据路径复杂、实验版本众多、代码写完就少碰——这正是 CLAUDE.md 能发挥作用的地方。
+科研项目通常有数据路径复杂、实验版本众多、代码写完就少碰等特点，用 CLAUDE.md 记录这些信息会比较有用。
 
 **一个科研项目的 CLAUDE.md 模板：**
 
@@ -300,7 +300,7 @@ globs: "**/*.py"
 
 ## 小结
 
-Claude Code 的记忆系统远比大多数用户意识到的要强大：
+Claude Code 的记忆系统提供了以下几种机制：
 
 | 工具 | 核心价值 |
 |------|---------|
@@ -312,10 +312,10 @@ Claude Code 的记忆系统远比大多数用户意识到的要强大：
 | **自动记忆 MEMORY.md** | Claude 自动积累的工作经验，无需手动维护 |
 | **# 前缀快速记忆** | 对话中随时补充规则，最低摩擦 |
 
-建议的起步路径：用 `/init` 生成初始 CLAUDE.md，然后根据实际工作中 Claude 犯错或不理解的地方，逐步补充和完善。记忆系统的价值随时间积累——配置越好，Claude 越懂你的项目。
+建议的起步路径：用 `/init` 生成初始 CLAUDE.md，然后根据实际使用中 Claude 犯错或理解偏差的地方，逐步补充和完善。
 
 ::: tip 下一步
-下一篇文章将介绍 **MCP（Model Context Protocol）**——让 Claude Code 连接外部工具和数据源的标准协议，从网页搜索到数据库查询，大幅扩展 Coding Agent 的能力边界。
+下一篇文章将介绍 **MCP（Model Context Protocol）**，让 Claude Code 连接外部工具和数据源的标准协议，支持网页搜索、数据库查询等操作。
 :::
 
 ## 参考资料

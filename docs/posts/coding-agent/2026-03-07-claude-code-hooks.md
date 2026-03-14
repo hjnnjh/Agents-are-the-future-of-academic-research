@@ -37,7 +37,7 @@ featured: false
 
 这些问题的根源在于：**CLAUDE.md 里的规则是建议，不是保证**。LLM 的行为本质上是概率性的，无论写得多详细，都可能被遗漏或忽略。
 
-**Hooks** 解决的就是这个问题。Hook 是 Claude Code 生命周期中挂载的 shell 命令——**它们不经过 LLM 判断，在指定时机直接执行，每次必然运行**。用官方的话说：
+**Hooks** 解决的就是这个问题。Hook 是 Claude Code 生命周期中挂载的 shell 命令——不经过 LLM 判断，在指定时机直接执行，每次都会运行。用官方的话说：
 
 > *Prompts are great for suggestions; hooks are guarantees.*（提示词给建议，Hook 给保证。）
 
@@ -266,21 +266,21 @@ EOF
 
 **第 27-61 行**：向 **stdout** 输出结构化的中文指令。`UserPromptSubmit` Hook 的 stdout 内容会被自动注入 Claude 的上下文，相当于在用户 prompt 前追加了一段系统级指令
 
-**整体效果**：每次用户提交任务时（非 slash 命令），Claude 必须先评估所有可用 Skill，再决定是否激活，最后才开始执行任务——这个流程从「依赖 AI 记忆」变成了「每次必然发生」。
+整体效果：每次用户提交任务时（非 slash 命令），Claude 必须先评估所有可用 Skill，再决定是否激活，最后才开始执行任务。这个流程不依赖 AI 记忆，每次都会执行。
 
 下图是该 Hook 在本项目实际运行的截图：Claude 按三步流程逐一评估 25 个可用 Skill，判断是否激活 `content-research-writer` 和 `beautiful-prose`：
 
 ![skill-eval-local.sh Hook 运行效果：Claude 按三步流程逐一评估并激活相关 Skill](/img/coding-agent/skill-eval-hook.png)
 
 ::: tip 为什么选择 Hook 而不是 CLAUDE.md？
-把「强制评估 Skills」写在 CLAUDE.md 里，Claude 可能在繁忙的任务中跳过这一步。用 Hook 挂载在 `UserPromptSubmit` 上，每次提交都会触发，无需 Claude 主动记忆——这正是 Hook 作为「确定性保证」的价值。
+把「强制评估 Skills」写在 CLAUDE.md 里，Claude 可能在繁忙的任务中跳过这一步。用 Hook 挂载在 `UserPromptSubmit` 上，每次提交都会触发，不依赖 Claude 主动记忆。
 :::
 
 ---
 
 ## 实战案例：深度学习项目的代码质量 Hook
 
-下面这个 Hook 来自一个深度学习项目的日常实践，是一个比 Prettier 复杂得多的 `PostToolUse` 场景——每次 Claude 修改 Python 文件后，自动完成**格式化 + 风格检查 + 类型检查**三道工序，发现问题直接阻断并把报告回传给 Claude，驱动它自行修复。
+下面这个 Hook 来自一个深度学习项目，是一个比 Prettier 复杂的 `PostToolUse` 场景——每次 Claude 修改 Python 文件后，自动跑格式化、风格检查和类型检查，发现问题直接阻断并把报告回传给 Claude，让它自行修复。
 
 ### 配置入口
 
@@ -435,13 +435,13 @@ graph TD
 
 ### 设计亮点
 
-**自动定位项目根目录**：脚本向上递归查找 `.git`、`pyproject.toml`、`ruff.toml` 等标志文件，确保以项目整体而非单个文件为单位做检查，避免因路径问题导致配置文件读取失败。
+**自动定位项目根目录**：脚本向上递归查找 `.git`、`pyproject.toml`、`ruff.toml` 等标志文件，以项目整体而非单个文件为单位做检查，避免路径问题导致配置文件读取失败。
 
-**三道工序串联**：格式化（`ruff format`）→ 风格检查（`ruff check`）→ 类型检查（`pyright`），三者各司其职，覆盖不同层次的代码质量问题。
+**格式化 + 检查串联**：格式化（`ruff format`）→ 风格检查（`ruff check`）→ 类型检查（`pyright`），分别覆盖不同层次的代码质量问题。
 
-**误报过滤**：Pyright 对 `_` 开头变量的"未使用"警告是预期行为（这是 Python 约定的忽略变量命名），脚本主动过滤，避免 Claude 在无意义的警告上浪费轮次。
+**误报过滤**：Pyright 对 `_` 开头变量的"未使用"警告是预期行为（Python 约定的忽略变量命名），脚本主动过滤，避免 Claude 在无意义的警告上浪费轮次。
 
-**闭环自动修复**：`exit 2` 将错误报告回传给 Claude，Claude 读到错误后会自动尝试修复，修复完再次触发 Hook——形成「修改 → 检查 → 反馈 → 修复」的闭环，直到所有检查通过。
+**闭环修复**：`exit 2` 将错误报告回传给 Claude，Claude 读到错误后自动尝试修复，修复完再次触发 Hook，直到所有检查通过。
 
 ::: info 前置依赖
 脚本依赖 [`uv`](https://docs.astral.sh/uv/)（Python 包管理器）、`ruff` 和 `pyright`。安装：
@@ -456,7 +456,7 @@ uv tool install pyright
 
 ## everything-claude-code 中的 Hooks
 
-[everything-claude-code](https://github.com/affaan-m/everything-claude-code) 是一个社区插件，预置了一套生产级 Hook 配置，覆盖代码质量、安全防护等场景。以下是其中几个典型示例：
+[everything-claude-code](https://github.com/affaan-m/everything-claude-code) 是一个社区插件，预置了一套 Hook 配置，覆盖代码质量、安全防护等场景。以下是几个示例：
 
 ### 自动格式化（PostToolUse + Edit|Write）
 
@@ -605,13 +605,13 @@ exit 0
 }
 ```
 
-Claude 准备停止时，用一个轻量 LLM（默认 Haiku，速度快、成本低）评估是否所有要求都已满足，未完成则强制 Claude 继续。这个 Hook 能有效减少"以为完成了，其实没有"的情况。
+Claude 准备停止时，用一个轻量 LLM（默认 Haiku，速度快、成本低）评估是否所有要求都已满足，未完成则强制 Claude 继续。这样可以减少"以为完成了，其实没有"的情况。
 
 ---
 
 ## Hook 与 MCP、Skills 的关系
 
-三者在 Claude Code 中各司其职，构成完整的工具层次：
+三者在 Claude Code 中承担不同角色：
 
 | 维度 | Hooks | MCP | Skills |
 |------|-------|-----|--------|
@@ -632,13 +632,13 @@ Claude 准备停止时，用一个轻量 LLM（默认 Haiku，速度快、成本
   → 任务完成
 ```
 
-**Hooks 保证「Skills 评估」必然发生，Skills 定义「专业工作流」如何执行，MCP 提供「外部能力」按需接入**——三者形成互补而非竞争的关系。
+简单来说：Hooks 保证「Skills 评估」一定会跑，Skills 定义工作流如何执行，MCP 提供外部能力按需接入。
 
 ---
 
 ## 小结
 
-Hooks 是 Claude Code 工作流可靠性的底层保障：
+各事件的典型用途：
 
 | 功能 | 核心价值 |
 |------|---------|
@@ -649,7 +649,7 @@ Hooks 是 Claude Code 工作流可靠性的底层保障：
 | **Notification** | 桌面通知、保持工作专注 |
 | **SessionStart** | 上下文恢复、重新注入关键信息 |
 
-从一个简单的自动格式化 Hook 开始——它只需要 3 行 JSON 配置，但能帮你从此不再担心 Claude 忘记格式化代码。
+如果只试一个 Hook，推荐自动格式化——3 行 JSON 配置，之后就不用管 Claude 有没有记得格式化代码了。
 
 ## 参考资料
 
