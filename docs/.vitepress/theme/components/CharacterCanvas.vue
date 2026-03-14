@@ -231,6 +231,19 @@ function onMouseMove(e: MouseEvent) {
   mouseY = e.clientY
 }
 
+function onTouchMove(e: TouchEvent) {
+  const touch = e.touches[0]
+  if (touch) {
+    mouseX = touch.clientX
+    mouseY = touch.clientY
+  }
+}
+
+function onTouchEnd() {
+  mouseX = -9999
+  mouseY = -9999
+}
+
 function onMouseLeave() {
   mouseX = -9999
   mouseY = -9999
@@ -254,6 +267,9 @@ function start() {
 onMounted(() => {
   window.addEventListener('resize', onResize)
   window.addEventListener('mousemove', onMouseMove)
+  window.addEventListener('touchstart', onTouchMove, { passive: true })
+  window.addEventListener('touchmove', onTouchMove, { passive: true })
+  window.addEventListener('touchend', onTouchEnd)
   document.addEventListener('mouseleave', onMouseLeave)
   nextTick(() => {
     requestAnimationFrame(() => start())
@@ -265,6 +281,9 @@ onUnmounted(() => {
   cancelAnimationFrame(animationId)
   window.removeEventListener('resize', onResize)
   window.removeEventListener('mousemove', onMouseMove)
+  window.removeEventListener('touchstart', onTouchMove)
+  window.removeEventListener('touchmove', onTouchMove)
+  window.removeEventListener('touchend', onTouchEnd)
   document.removeEventListener('mouseleave', onMouseLeave)
 })
 </script>
